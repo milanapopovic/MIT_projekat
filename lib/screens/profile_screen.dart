@@ -1,3 +1,4 @@
+import 'package:fashion_app1/widgets/brand_app_bar_title';
 import 'package:flutter/material.dart';
 
 
@@ -10,14 +11,8 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title:const Text(
-          'Fashion Store',
-          style: TextStyle(
-          fontFamily: 'Pacifico',
-          fontSize: 22,
-          letterSpacing: 1,
-            ),
-          ),
+        title:const BrandAppBarTitle(title: 'Fashion Store'),
+
 
       ),
        body: Column(

@@ -1,5 +1,7 @@
+import 'package:fashion_app1/widgets/brand_app_bar_title';
+import 'package:fashion_app1/widgets/empty_cart_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:fashion_app1/widgets/title_text.dart';
+
 
 
 class CartScreen extends StatelessWidget {
@@ -7,10 +9,23 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-       body: Center(
-      child: TitelesTextWidget(label: "Cart Screen"),
-     ),
+    final bool cartIsEmpty = true;
+    return Scaffold(
+      appBar: AppBar(
+        title: const BrandAppBarTitle(title: 'Fashion Store'),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 12),
+            child: Icon(Icons.shopping_cart_outlined),
+          ),
+        ],
+      ),
+       body: cartIsEmpty
+          ? EmptyCartWidget(
+              onShopNow: () {             
+              },
+            )
+          : const SizedBox.shrink(),
     );
   }
 }
