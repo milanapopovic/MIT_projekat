@@ -1,3 +1,4 @@
+import 'package:fashion_app1/constants/app_colors.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title';
 import 'package:flutter/material.dart';
 
@@ -23,16 +24,16 @@ class ProfileScreen extends StatelessWidget {
         child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
-          color: const Color(0xFF8E6C88).withAlpha(26),
+          color: AppColors.brandSoft,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-              color: const Color(0xFF8E6C88).withAlpha(89),
+              color:AppColors.brandSoftBorder,
         ),
       ),
         child: const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.person_outline, color: Color(0xFF8E6C88), size: 20),
+            Icon(Icons.person_outline, color:AppColors.brand, size: 20),
             SizedBox(width: 8),
             Text(
               'Profile',
@@ -57,7 +58,8 @@ class ProfileScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFF8E6C88).withAlpha(40)),
+              border: Border.all(color: AppColors.brandLine,
+              ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withAlpha(12),
@@ -70,8 +72,8 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 22,
-                  backgroundColor: const Color(0xFF8E6C88).withAlpha(30),
-                  child: const Icon(Icons.person, color: Color(0xFF8E6C88)),
+                  backgroundColor: AppColors.brand.withAlpha(30),
+                  child: const Icon(Icons.person, color:AppColors.brand),
                 ),
                 const SizedBox(width: 12),
                 const Expanded(
@@ -105,7 +107,7 @@ class ProfileScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w800,
-                    color: Color(0xFF8E6C88),
+                    color: AppColors.brand,
                     letterSpacing: 0.6,
                   ),
                 ),
@@ -120,7 +122,7 @@ class ProfileScreen extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: const Color(0xFF8E6C88).withAlpha(40),
+                  color: AppColors.brandLine,
                 ),
               ),
               child: Column(
@@ -169,10 +171,10 @@ class ProfileScreen extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color(0xFF8E6C88),
-                    backgroundColor: const Color(0xFF8E6C88).withAlpha(18),
+                    foregroundColor: AppColors.brand,
+                    backgroundColor: AppColors.brandBg,
                     side: BorderSide(
-                      color: const Color(0xFF8E6C88).withAlpha(90),
+                      color: AppColors.brandBorder,
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -206,15 +208,13 @@ class _ProfileRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const brand = Color(0xFF8E6C88);
-
     return ListTile(
-      leading: Icon(icon, color: brand),
+      leading: Icon(icon, color: AppColors.brand),
       title: Text(
         title,
         style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
-      trailing: Icon(Icons.chevron_right, color: brand.withAlpha(150)),
+      trailing: Icon(Icons.chevron_right, color: AppColors.brand.withAlpha(150)),
       onTap: onTap,
     );
   }
