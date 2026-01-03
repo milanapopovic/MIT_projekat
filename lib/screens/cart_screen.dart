@@ -1,4 +1,4 @@
-import 'package:fashion_app1/widgets/brand_app_bar_title';
+import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:fashion_app1/widgets/empty_cart_widget.dart';
 import 'package:flutter/material.dart';
 

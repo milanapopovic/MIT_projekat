@@ -1,3 +1,4 @@
+import 'package:fashion_app1/constants/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
@@ -10,8 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
       home: HomeScreen(), // ← jedan screen
     );
   }

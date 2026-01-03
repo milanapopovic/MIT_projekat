@@ -1,5 +1,5 @@
 import 'package:fashion_app1/constants/app_colors.dart';
-import 'package:fashion_app1/widgets/brand_app_bar_title';
+import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:flutter/material.dart';
 
 
