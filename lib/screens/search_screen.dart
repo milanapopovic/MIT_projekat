@@ -1,11 +1,13 @@
 import 'package:fashion_app1/constants/app_colors.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:fashion_app1/widgets/product_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+  final ValueListenable<String> queryListenable;
+  const SearchScreen({super.key, required this.queryListenable});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -253,18 +255,33 @@ class _SearchScreenState extends State<SearchScreen> {
 
   String _query = '';
 
+  void _applyExternalQuery() {
+    final q = widget.queryListenable.value.trim();
+    _controller.text = q;
+    _controller.selection = TextSelection.fromPosition(
+      TextPosition(offset: q.length),
+    );
+    setState(() => _query = q);
+}
+
+
   @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-    _focusNode = FocusNode();
-  }
+void initState() {
+  super.initState();
+  _controller = TextEditingController();
+  _focusNode = FocusNode();
+
+  widget.queryListenable.addListener(_applyExternalQuery);
+  _applyExternalQuery(); // odmah učitaj ako je Home poslao query
+}
+
 
   @override
   void dispose() {
-    _controller.dispose();
-    _focusNode.dispose();
-    super.dispose();
+   widget.queryListenable.removeListener(_applyExternalQuery);
+  _controller.dispose();
+  _focusNode.dispose();
+  super.dispose();
   }
 
   
