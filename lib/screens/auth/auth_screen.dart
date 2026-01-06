@@ -25,8 +25,11 @@ class _AuthScreenState extends State<AuthScreen> {
     if (showLogin) {
       return LoginScreen(
         onDone: () {
-          Navigator.pop(context, true);
-        },
+         Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        (route) => false,
+          );    
+          },
         onBack: () {
           setState(() => showLogin = false);
         },
@@ -37,7 +40,10 @@ class _AuthScreenState extends State<AuthScreen> {
     if (showRegister) {
       return RegisterScreen(
         onDone: () {
-          Navigator.pop(context, true);
+         Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        (route) => false,
+      );
         },
         onBack: () {
           setState(() => showRegister = false);

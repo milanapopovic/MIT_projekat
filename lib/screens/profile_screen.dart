@@ -1,6 +1,9 @@
 import 'package:fashion_app1/auth/auth_state.dart';
 import 'package:fashion_app1/constants/app_colors.dart';
 import 'package:fashion_app1/screens/auth/auth_screen.dart';
+import 'package:fashion_app1/screens/profile/edit_profile_screen.dart';
+import 'package:fashion_app1/screens/profile/orders_screen.dart';
+import 'package:fashion_app1/screens/profile/wishlist_screen.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -130,19 +133,39 @@ class ProfileScreen extends StatelessWidget {
           _ProfileRow(
             icon: Icons.shopping_cart_outlined,
             title: 'All Orders',
-            onTap: () {},
+            onTap: () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const OrdersScreen()),
+            );
+            },
           ),
           const Divider(height: 1),
           _ProfileRow(
             icon: Icons.bookmark_border,
             title: 'Wishlist',
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const WishlistScreen()),
+              );
+            },
           ),
           const Divider(height: 1),
           _ProfileRow(
             icon: Icons.person_outline,
             title: 'Edit profile',
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => EditProfileScreen(
+          initialName: 'Milana Popovic',
+          initialEmail: auth.email ?? '',
+        ),
+      ),
+    );
+            },
           ),
         ],
       ),
