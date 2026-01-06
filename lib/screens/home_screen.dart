@@ -3,7 +3,6 @@ import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:fashion_app1/widgets/product_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/title_text.dart';
 import 'cart_screen.dart';
 import 'profile_screen.dart';
 import 'search_screen.dart';
@@ -208,6 +207,9 @@ class _HomeTab extends StatelessWidget {
                     Positioned(
                       left: 16,
                       bottom: 16,
+                      child: SizedBox(
+                        width: 120,
+                      
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.brand,
@@ -224,8 +226,10 @@ class _HomeTab extends StatelessWidget {
                         child: const Text('Explore'),
                       ),
                     ),
+                    ),
                   ],
                 ),
+              
               ),
             ),
           ),

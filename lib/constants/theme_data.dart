@@ -41,6 +41,42 @@ class AppTheme {
           borderSide: BorderSide(color: AppColors.brandBorder),
         ),
       ),
-    );
+      textTheme: const TextTheme(
+        headlineMedium: TextStyle(
+          fontSize: 26,
+          fontWeight: FontWeight.w800,
+          color: Colors.black,
+        ),
+        titleMedium: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: Colors.black,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          color: Colors.black87,
+        ),
+      ),
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.brand,
+        foregroundColor: Colors.white,
+        minimumSize: const Size.fromHeight(48),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+       ),
+      ),
+
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+        foregroundColor: AppColors.brand,
+        side: BorderSide(color: AppColors.brandLine),
+        minimumSize: const Size.fromHeight(48),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+        ),
+     ),
+
+     );
   }
 }
