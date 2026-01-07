@@ -44,12 +44,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'jeans',
     'price': 3990,
     'image': 'https://wrogn.com/cdn/shop/files/1_4eb49f58-8131-4749-b63b-2a3573424b64.jpg?v=1749124959',
+    'description': 'Relaxed-fit oversized jeans made from soft denim, perfect for everyday casual outfits.',
   },
   {
     'title': 'Dark Straight Jeans',
     'category': 'jeans',
     'price': 4399,
     'image': 'https://uspoloassn.in/cdn/shop/files/1_b53772c0-f28b-44c6-9faf-bbea1879d148.jpg',
+    'description': 'Classic straight-leg jeans in dark denim, easy to style for both casual and smart looks.'
   },
 
   // pants
@@ -58,12 +60,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'pants',
     'price': 3590,
     'image': 'https://i.pinimg.com/736x/00/c3/42/00c342bbe436bd8c41ea37fd28548807.jpg',
+    'description': 'Wide-leg pants with a modern silhouette, offering comfort and effortless elegance.'
   },
   {
     'title': 'Classic Black Pants',
     'category': 'pants',
     'price': 3290,
     'image': 'https://images-na.ssl-images-amazon.com/images/I/61-tmSOVLxL._AC_UL600_SR600,600_.jpg',
+    'description': 'Timeless black pants with a clean cut, ideal for office wear and formal occasions.',
   },
   // t-shirts
   {
@@ -71,12 +75,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 't-shirts',
     'price': 1299,
     'image': 'https://notbasics.co.uk/cdn/shop/files/26_4c8dc6a5-a545-4010-8a84-f737ba609bd4.png?v=1753189939&width=1660',
+    'description': 'A classic white t-shirt made from soft cotton, a must-have essential for any wardrobe.',
   },
   {
     'title': 'Graphic T-shirt',
     'category': 't-shirts',
     'price': 1599,
     'image': 'https://cdn.shopify.com/s/files/1/1367/5211/files/LiftingGraphicOversizedT-Shirt-GSDarkGrey-B6A3X-GB7H-1681_2bafce22-caed-4e80-92c5-0b0f5818138d.jpg?v=1695117251',
+    'description': 'Oversized graphic t-shirt with a bold print, perfect for a street-style look.',
   },
 
   // tops
@@ -85,12 +91,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'tops',
     'price': 1490,
     'image': 'https://ivyreina.com/cdn/shop/products/e5d779d9549e49e8b0f95c877f2341f8-Max.jpg?v=1660243486&width=1340',
+    'description' : 'Ribbed crop top with a flattering fit, ideal for summer outfits and layering.',
   },
   {
     'title': 'Satin Cami Top',
     'category': 'tops',
     'price': 1890,
     'image': 'https://outfitbook.fr/cdn/shop/products/Top_20beige_20en_20satin_20col_20b_C3_A9nitier_2afa5afe-aa71-49b1-9a92-9604767c2ad5.jpg?v=1701783576',
+    'description': 'Elegant satin cami top with thin straps, perfect for evening and chic looks.',
   },
 
   // jackets
@@ -99,12 +107,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'jackets',
     'price': 5999,
     'image': 'https://www.cottontraders.com/on/demandware.static/-/Sites-cotton-master-catalog/default/dwf3457617/images/original/AD12222W_original_neutral_stonewash_574653.jpg',
+    'description' : 'Classic denim jacket with a relaxed fit, perfect for transitional seasons.',
   },
   {
     'title': 'Leather Jacket',
     'category': 'jackets',
     'price': 7499,
     'image': 'https://cdn-img.prettylittlething.com/d/0/5/c/d05ce0575efebd32600b944c37a62f77cb183f6f_cnj4215_1.jpg?imwidth=600',
+    'description' : 'Stylish leather jacket that adds an edgy touch to any outfit.',
   },
 
   // dresses
@@ -113,12 +123,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'dresses',
     'price': 4999,
     'image': 'https://www.lulus.com/images/product/xlarge/11626201_2382031.jpg?w=375&hdpi=1',
+    'description': 'Lightweight midi dress designed for warm days, feminine and comfortable.',
   },
   {
     'title': 'Black Evening Dress',
     'category': 'dresses',
     'price': 6999,
     'image': 'https://itsmilla.com/cdn/shop/products/24_1_9e0e5e41-d567-449d-a7d5-aea28cfc97af-746336.jpg?v=1740052504',
+    'description' : 'Elegant black evening dress with a refined silhouette, perfect for special occasions.',
   },
 
   // skirts
@@ -127,12 +139,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'skirts',
     'price': 2799,
     'image': 'https://static.e-stradivarius.net/assets/public/a5d4/96af/5353437086a6/373d4a8780ed/04799768400-c1/04799768400-c1.jpg?ts=1765978360125&w=1300&f=auto',
+    'description': 'Trendy mini skirt that adds a playful and stylish touch to your outfit.',
   },
   {
     'title': 'Pleated Skirt',
     'category': 'skirts',
     'price': 3199,
     'image': 'https://i0.wp.com/thewanderinggirl.com/wp-content/uploads/2024/08/edaowofashion_1711472828_3332398071562965274_332633503.jpg?resize=819%2C1024&ssl=1',
+    'description': 'Flowing pleated skirt with a timeless design, suitable for both casual and formal looks.',
   },
 
   // shoes
@@ -141,12 +155,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'shoes',
     'price': 5499,
     'image': 'https://static.reserved.com/media/catalog/product/cache/1200/a4e40ebdc3e371adff845072e1c73f37/4/9/498FF-00X-002-1-1062000_5.jpg',
+    'description': 'Comfortable white sneakers designed for everyday wear and versatile styling.',
   },
   {
     'title': 'Black Ankle Boots',
     'category': 'shoes',
     'price': 7999,
     'image': 'https://www.bocage.eu/media/catalog/product/8/3/832861_10.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=1820&width=1560&canvas=1560:1820',
+    'description': 'Classic black ankle boots with a sleek design, ideal for colder seasons.',
   },
 
   // bags
@@ -155,12 +171,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'bags',
     'price': 3499,
     'image': 'https://www.mzwallace.com/cdn/shop/files/1786B1902_black_mini_chelsea_shoulder_A10_b6ebf8d4-a619-4575-bdb9-b53271ad64cb.jpg?v=1733854154&width=3840',
+    'description': 'Compact shoulder bag with a modern design, perfect for carrying essentials.',
   },
   {
     'title': 'Tote Bag',
     'category': 'bags',
     'price': 2999,
     'image': 'https://i.etsystatic.com/21162700/r/il/9f866a/5897671982/il_570xN.5897671982_oy76.jpg',
+    'description': 'Spacious tote bag ideal for daily use, combining practicality and style.',
   },
 
   // hoodies
@@ -169,12 +187,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'hoodies',
     'price': 3999,
     'image': 'https://m.media-amazon.com/images/I/61glUTGQnUL._AC_UY1000_.jpg',
+    'description': 'Cozy oversized hoodie made for comfort, perfect for relaxed and casual outfits.',
   },
   {
     'title': 'Zip Hoodie',
     'category': 'hoodies',
     'price': 4299,
     'image': 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/B65730s.jpg?im=Resize,width=750',
+    'description' : 'Zip-up hoodie with a sporty look, easy to layer and wear year-round.',
   },
 
   // sweaters
@@ -183,12 +203,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'sweaters',
     'price': 3899,
     'image': 'https://cdn11.bigcommerce.com/s-scgdirr/images/stencil/685x900/products/27711/151180/ML905_-_Natural_White_1__35035.1758101559.jpg?c=2',
+    'description': 'Soft knit sweater that provides warmth while maintaining a stylish appearance.',
   },
   {
     'title': 'Turtleneck Sweater',
     'category': 'sweaters',
     'price': 4199,
     'image': 'https://cdn.shopify.com/s/files/1/0739/8984/9407/files/arlette_0011451022_olive_green_2495.jpg?v=1722446375',
+    'description' : 'Classic turtleneck sweater designed for cold days and elegant layering.',
   },
 
   // coats
@@ -197,12 +219,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'coats',
     'price': 8999,
     'image': 'https://cdn-img.prettylittlething.com/d/b/6/7/db67fcee753326989dd37d83d72707ffe0346a8d_CNN6567_1_light_grey_double_breasted_oversized_structured_coat.jpg?imwidth=600',
+    'description' : 'Long wool coat with a sophisticated cut, perfect for winter and formal wear.',
   },
   {
     'title': 'Beige Trench Coat',
     'category': 'coats',
     'price': 10999,
     'image': 'https://i.etsystatic.com/18546251/r/il/be7da6/4712909437/il_fullxfull.4712909437_tgfm.jpg',
+    'description' : 'Timeless beige trench coat that adds elegance to any outfit.',  
   },
 
   // blazers
@@ -211,12 +235,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'blazers',
     'price': 6499,
     'image': 'https://allthingsgolden.com/cdn/shop/files/THE-LINEN-CLASSIC-BLAZER-BLACK-2.jpg?v=1739225325',
+    'description': 'Tailored classic blazer suitable for professional and smart-casual looks.',
   },
   {
     'title': 'Oversized Blazer',
     'category': 'blazers',
     'price': 6999,
     'image': 'https://www.beginningboutique.co.nz/cdn/shop/files/LoganTanOversizedBlazer-1.jpg?v=1738597456',
+    'description': 'Oversized blazer with a modern fit, perfect for trendy and relaxed styling.',
   },
 
   // shorts
@@ -225,12 +251,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'shorts',
     'price': 2599,
     'image': 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1652978481-.jpg?crop=0.891xw:1.00xh;0.109xw,0&resize=980:*',
+    'description': 'Casual denim shorts ideal for summer days and relaxed outfits.',
   },
   {
     'title': 'Linen Shorts',
     'category': 'shorts',
     'price': 2899,
     'image': 'https://fanfarelabel.com/cdn/shop/files/Beau_Linen_Bermuda_Shorts_in_Beige_No5_900x.jpg?v=1732723886',
+    'description': 'Lightweight linen shorts designed for comfort during warm weather.',
   },
 
   // accessories
@@ -239,12 +267,14 @@ class _SearchScreenState extends State<SearchScreen> {
     'category': 'accessories',
     'price': 999,
     'image': 'https://cdn.sanity.io/images/cj884rht/production/94bac59c6ddee64f7834f151a1491a45ecd69681-1600x2000.jpg',
+    'description': 'Minimalist gold hoop earrings that add a subtle elegant touch to any look.',
   },
   {
     'title': 'Black Belt',
     'category': 'accessories',
     'price': 1199,
     'image': 'https://thursdayboots.com/cdn/shop/products/Straight_Classic_Black_Womens_1_1_1024x1024.jpg?v=1573053543',
+    'description': 'Classic black belt with a clean design, perfect for everyday styling.',
   },
 ];
 
@@ -272,7 +302,7 @@ void initState() {
   _focusNode = FocusNode();
 
   widget.queryListenable.addListener(_applyExternalQuery);
-  _applyExternalQuery(); // odmah učitaj ako je Home poslao query
+  _applyExternalQuery(); 
 }
 
 
@@ -430,6 +460,8 @@ void initState() {
                       category: p['category'] as String,
                       priceRsd: p['price'] as int,
                       imageUrl: p['image'] as String,
+                      description: (p['description'] as String?) ?? '',
+
                     );
                   },
                 ),

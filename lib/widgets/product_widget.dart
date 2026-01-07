@@ -1,3 +1,4 @@
+import 'package:fashion_app1/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app1/constants/app_colors.dart';
 
@@ -6,6 +7,7 @@ class ProductWidget extends StatelessWidget {
   final String category;
   final int priceRsd;
   final String imageUrl;
+  final String description;
 
   const ProductWidget({
     super.key,
@@ -13,16 +15,48 @@ class ProductWidget extends StatelessWidget {
     required this.category,
     required this.priceRsd,
     required this.imageUrl,
+    this.description = "",
   });
 
+  List<String> _sizeOptionsForCategory(String cat) {
+  
+    if (cat == 'bags' || cat == 'accessories') {
+      return [];
+    }
+     if (cat == 'jeans' || cat == 'pants' || cat == 'shorts') {
+    return ['34', '36', '38', '40', '42', '44'];
+    }
+    if (cat == 'shoes') {
+      return ['36', '37', '38', '39', '40', '41'];
+    }
+    return ['XS', 'S', 'M', 'L', 'XL'];
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
+    return InkWell(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.brandLine),
-      ),
+        onTap: () {
+          final sizeOptions = _sizeOptionsForCategory(category);
+          Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => ProductDetailsScreen(
+              title: title,
+              category: category,
+              priceRsd: priceRsd,
+              imageUrl: imageUrl,
+              sizes: sizeOptions,
+              description: description,
+            ),
+          ),
+        );
+        },
+       child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.brandLine),
+        ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -66,6 +100,7 @@ class ProductWidget extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

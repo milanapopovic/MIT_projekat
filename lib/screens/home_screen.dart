@@ -120,6 +120,7 @@ class _HomeTab extends StatelessWidget {
       'price': 3990,
       'image':
           'https://wrogn.com/cdn/shop/files/1_4eb49f58-8131-4749-b63b-2a3573424b64.jpg?v=1749124959',
+      'description': 'Relaxed-fit oversized jeans made from soft denim, perfect for everyday casual outfits.',
     },
     {
       'title': 'Dark Straight Jeans',
@@ -127,6 +128,7 @@ class _HomeTab extends StatelessWidget {
       'price': 4399,
       'image':
           'https://uspoloassn.in/cdn/shop/files/1_b53772c0-f28b-44c6-9faf-bbea1879d148.jpg',
+      'description': 'Classic straight-leg jeans in dark denim, easy to style for both casual and smart looks.',
     },
     {
       'title': 'Denim Jacket',
@@ -134,6 +136,7 @@ class _HomeTab extends StatelessWidget {
       'price': 5999,
       'image':
           'https://www.cottontraders.com/on/demandware.static/-/Sites-cotton-master-catalog/default/dwf3457617/images/original/AD12222W_original_neutral_stonewash_574653.jpg',
+      'description': 'Classic denim jacket with a relaxed fit, perfect for transitional seasons.',
     },
     {
       'title': 'Summer Midi Dress',
@@ -141,6 +144,7 @@ class _HomeTab extends StatelessWidget {
       'price': 4999,
       'image':
           'https://www.lulus.com/images/product/xlarge/11626201_2382031.jpg?w=375&hdpi=1',
+      'description': 'Lightweight midi dress designed for warm days, feminine and comfortable.',
     },
   ];
 
@@ -308,6 +312,7 @@ class _HomeTab extends StatelessWidget {
                     category: p['category'] as String,
                     priceRsd: p['price'] as int,
                     imageUrl: p['image'] as String,
+                    description: (p['description'] as String?) ?? '',
                   );
                 },
                 childCount: _featuredProducts.length,
