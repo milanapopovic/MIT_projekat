@@ -1,12 +1,15 @@
+import 'package:fashion_app1/cart/cart_state.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app1/constants/app_colors.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final String title;
   final String category;
   final int priceRsd;
   final String imageUrl;
+  final String? initialSelectedSize;
 
   final List<String> sizes;
   final String description;
@@ -17,8 +20,9 @@ class ProductDetailsScreen extends StatefulWidget {
     required this.category,
     required this.priceRsd,
     required this.imageUrl,
-    this.sizes = const ["S", "M", "L", "XL"],
+    this.sizes = const [],
     this.description = "",
+    this.initialSelectedSize,
   });
 
   @override
@@ -32,13 +36,43 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   void initState() {
     super.initState();
-    selectedSize = null;  
+    final showSizes = _sizesToShow();
+
+  if (widget.initialSelectedSize != null &&
+      showSizes.contains(widget.initialSelectedSize)) {
+        selectedSize = widget.initialSelectedSize;
+  } else {
+    selectedSize = null;
+  }
     }
     bool _hasSizes() {
       return widget.category != 'bags' &&
       widget.category != 'accessories' &&
-      widget.sizes.isNotEmpty;
+      _sizesToShow().isNotEmpty;
     }
+  List<String> _sizesForCategory(String category) {
+    final c = category.toLowerCase();
+
+    if (c == 'shoes') return const ['36', '37', '38', '39', '40', '41'];
+    if (c == 'jeans' || c == 'pants' || c == 'skirts' || c == 'shorts') {
+      return const ['34', '36', '38', '40', '42', '44'];
+    }
+    if (c == 't-shirts' ||
+        c == 'tops' ||
+        c == 'hoodies' ||
+        c == 'sweaters' ||
+        c == 'jackets' ||
+        c == 'coats' ||
+        c == 'blazers') {
+      return const ['XS', 'S', 'M', 'L', 'XL'];
+    }
+    return const ['S', 'M', 'L', 'XL'];
+  }
+
+  List<String> _sizesToShow() {
+    if (widget.sizes.isNotEmpty) return widget.sizes;
+    return _sizesForCategory(widget.category);
+  }
 
 
   @override
@@ -125,7 +159,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
                 Wrap(
                   spacing: 10,
-                  children: widget.sizes.map((s) {
+                  children: _sizesToShow().map((s) {
                     final isSelected = (s == selectedSize);
                     return ChoiceChip(
                       label: Text(s),
@@ -154,18 +188,34 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ),
                         ),
                         onPressed: (_hasSizes() && selectedSize == null)
-                            ? null
-                            : () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      _hasSizes()
-                                          ? "Privremeno: Add to cart ($selectedSize)"
-                                          : "Privremeno: Add to cart",
-                                    ),
+                          ? null
+                          : () {
+                              final productId = widget.title.toLowerCase().replaceAll(' ', '_');
+
+                              context.read<CartState>().addItem(
+                                    productId: productId,
+                                    title: widget.title,
+                                    category: widget.category,
+                                    priceRsd: widget.priceRsd,
+                                    imageUrl: widget.imageUrl,
+                                    sizes: _sizesToShow(),
+                                    description: widget.description,
+                                    size: _hasSizes() ? selectedSize : null,
+                                    qty: 1,
+                                  );
+
+                              final messenger = ScaffoldMessenger.of(context);
+                              messenger.hideCurrentSnackBar();
+                              messenger.showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    _hasSizes()
+                                        ? "Added to cart ($selectedSize)"
+                                        : "Added to cart",
                                   ),
-                                );
-                              },
+                                ),
+                              );
+                            },
                         child: const Text("Add to cart"),
                       ),
 

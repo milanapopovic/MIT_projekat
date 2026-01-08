@@ -37,7 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onGoToSearchWith: _goToSearchWith,
       ),
       SearchScreen(queryListenable: _searchQuery),
-      const CartScreen(),
+      CartScreen(
+        onContinueShopping: () {
+          setState(() => _currentIndex = 0);
+        },
+      ),
       const ProfileScreen(),
       ];
   }
