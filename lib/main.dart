@@ -1,6 +1,7 @@
 import 'package:fashion_app1/auth/auth_state.dart';
 import 'package:fashion_app1/cart/cart_state.dart';
 import 'package:fashion_app1/constants/theme_data.dart';
+import 'package:fashion_app1/orders/orders_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'screens/home_screen.dart';
@@ -11,6 +12,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthState()),
         ChangeNotifierProvider(create: (_) => CartState()),
+        ChangeNotifierProvider(create: (_) => OrdersState()),
       ],
       child:  const MyApp(),
     ),
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: HomeScreen(), // jedan screen
+      home: HomeScreen(), 
     );
   }
 }

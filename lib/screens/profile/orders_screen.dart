@@ -1,7 +1,10 @@
 import 'package:fashion_app1/constants/app_colors.dart';
+import 'package:fashion_app1/orders/orders_state.dart';
+import 'package:fashion_app1/screens/profile/order_details_screen.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:fashion_app1/widgets/page_header_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -9,7 +12,8 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final orders = <_OrderItem>[]; 
+    final orders = context.watch<OrdersState>().orders;
+ 
 
     return Scaffold(
       appBar: AppBar(
@@ -61,7 +65,16 @@ class OrdersScreen extends StatelessWidget {
                       separatorBuilder: (_, __) => const SizedBox(height: 10),
                       itemBuilder: (context, index) {
                         final o = orders[index];
-                        return Container(
+                        final preview = _buildPreview(o);
+                        return InkWell(
+                          borderRadius: BorderRadius.circular(16),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => OrderDetailsScreen(order: o)),
+                            );
+                          },
+                        child: Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -95,7 +108,7 @@ class OrdersScreen extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 4),
                                     Text(
-                                      '${o.date} • \$${o.total.toStringAsFixed(2)}',
+                                     '${_formatDate(o.date)} • ${_formatPrice(o.totalRsd)} RSD',
                                       style: const TextStyle(
                                         fontSize: 13,
                                         color: Colors.black54,
@@ -110,6 +123,7 @@ class OrdersScreen extends StatelessWidget {
                               ),
                             ],
                           ),
+                        ),
                         );
                       },
                     ),
@@ -119,16 +133,23 @@ class OrdersScreen extends StatelessWidget {
       ),
     );
   }
+  String _formatDate(DateTime d) => '${d.day}.${d.month}.${d.year}.';
+
+  String _formatPrice(int price) {
+    final s = price.toString();
+    if (s.length <= 3) return s;
+    final head = s.substring(0, s.length - 3);
+    final tail = s.substring(s.length - 3);
+    return "$head $tail";
+  }
+  String _buildPreview(OrderItem o) {
+  if (o.lines.isEmpty) return "";
+  final firstTwo = o.lines.take(2).map((it) => "${it.title} x${it.qty}").toList();
+  final rest = o.lines.length - firstTwo.length;
+  return rest > 0 ? "${firstTwo.join(", ")} + $rest more" : firstTwo.join(", ");
 }
 
-class _OrderItem {
-  final String orderNumber;
-  final String date;
-  final double total;
-
-  const _OrderItem({
-    required this.orderNumber,
-    required this.date,
-    required this.total,
-  });
 }
+
+
+

@@ -1,4 +1,5 @@
 import 'package:fashion_app1/cart/cart_state.dart';
+import 'package:fashion_app1/screens/checkout_screen.dart';
 import 'package:fashion_app1/screens/product_details_screen.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
 import 'package:fashion_app1/widgets/empty_cart_widget.dart';
@@ -136,8 +137,9 @@ class CartScreen extends StatelessWidget {
                           height: 44,
                           child: FilledButton(
                             onPressed: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Checkout (coming soon)")),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (_) => const CheckoutScreen()),
                               );
                             },
                             child: const Text("Checkout"),
