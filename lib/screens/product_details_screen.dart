@@ -1,4 +1,5 @@
 import 'package:fashion_app1/cart/cart_state.dart';
+import 'package:fashion_app1/wishlist/wishlist_state.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_app1/constants/app_colors.dart';
 import 'package:fashion_app1/widgets/brand_app_bar_title.dart';
@@ -77,6 +78,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final productId = widget.title.toLowerCase().replaceAll(' ', '_');
+    final isWishlisted = context.watch<WishlistState>().contains(productId);
     return Scaffold(
       appBar: AppBar(
         title: const BrandAppBarTitle(title: 'Fashion Store'),
@@ -91,10 +94,26 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               color: Colors.black,
             ),
             onPressed: () {
-              setState(() {
-                isWishlisted = !isWishlisted;
-              });
+              context.read<WishlistState>().toggle(
+                productId: productId,
+                title: widget.title,
+                category: widget.category,
+                priceRsd: widget.priceRsd,
+                imageUrl: widget.imageUrl,
+                description: widget.description,
+              );
+
+              final messenger = ScaffoldMessenger.of(context);
+              messenger.hideCurrentSnackBar();
+              messenger.showSnackBar(
+                SnackBar(
+                  content: Text(
+                    isWishlisted ? "Removed from wishlist" : "Added to wishlist",
+                  ),
+                ),
+              );
             },
+            
           ),
         ],
 
@@ -228,10 +247,25 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      setState(() {
-                        isWishlisted = !isWishlisted;
-                      });
+                      context.read<WishlistState>().toggle(
+                        productId: productId,
+                        title: widget.title,
+                        category: widget.category,
+                        priceRsd: widget.priceRsd,
+                        imageUrl: widget.imageUrl,
+                        description: widget.description,
+                      );
+                      final messenger = ScaffoldMessenger.of(context);
+                      messenger.hideCurrentSnackBar();
+                      messenger.showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            isWishlisted ? "Removed from wishlist" : "Added to wishlist",
+                          ),
+                        ),
+                      );
                     },
+                    
                   ),
 
                 ],
