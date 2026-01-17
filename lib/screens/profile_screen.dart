@@ -88,8 +88,9 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        isGuest ? 'Guest user' : 'Milana Popovic',
-                        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+                        isGuest ? 'Guest user': (auth.isAdmin ? 'Admin' : 'Milana Popovic'),
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+
                       ),
                       const SizedBox(height: 2),
                       Text(
@@ -160,7 +161,7 @@ class ProfileScreen extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (_) => EditProfileScreen(
-          initialName: 'Milana Popovic',
+          initialName: auth.isAdmin ? 'Admin' : 'Milana Popovic',
           initialEmail: auth.email ?? '',
         ),
       ),

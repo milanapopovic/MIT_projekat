@@ -8,6 +8,7 @@ class ProductWidget extends StatelessWidget {
   final int priceRsd;
   final String imageUrl;
   final String description;
+  final List<String> sizes;
 
   const ProductWidget({
     super.key,
@@ -15,28 +16,16 @@ class ProductWidget extends StatelessWidget {
     required this.category,
     required this.priceRsd,
     required this.imageUrl,
+    required this.sizes,
     this.description = "",
   });
 
-  List<String> _sizeOptionsForCategory(String cat) {
   
-    if (cat == 'bags' || cat == 'accessories') {
-      return [];
-    }
-     if (cat == 'jeans' || cat == 'pants' || cat == 'shorts') {
-    return ['34', '36', '38', '40', '42', '44'];
-    }
-    if (cat == 'shoes') {
-      return ['36', '37', '38', '39', '40', '41'];
-    }
-    return ['XS', 'S', 'M', 'L', 'XL'];
-  }
   @override
   Widget build(BuildContext context) {
     return InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          final sizeOptions = _sizeOptionsForCategory(category);
           Navigator.push(
           context,
           MaterialPageRoute(
@@ -45,7 +34,7 @@ class ProductWidget extends StatelessWidget {
               category: category,
               priceRsd: priceRsd,
               imageUrl: imageUrl,
-              sizes: sizeOptions,
+              sizes: sizes,
               description: description,
             ),
           ),

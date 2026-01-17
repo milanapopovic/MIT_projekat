@@ -6,6 +6,8 @@ import 'package:fashion_app1/widgets/product_widget.dart';
 import 'package:fashion_app1/wishlist/wishlist_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:fashion_app1/products/products_state.dart';
+
 
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});
@@ -113,6 +115,7 @@ class WishlistScreen extends StatelessWidget {
                               priceRsd: p.priceRsd,
                               imageUrl: p.imageUrl,
                               description: p.description,
+                              sizes: ProductsState.defaultSizesForCategory(p.category),
                             ),
                           ),
                           Positioned(

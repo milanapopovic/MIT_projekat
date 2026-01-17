@@ -13,7 +13,7 @@ class ProductDetailsScreen extends StatefulWidget {
   final String? initialSelectedSize;
 
   final List<String> sizes;
-  final String description;
+  final String description; 
 
   const ProductDetailsScreen({
     super.key,
