@@ -16,8 +16,8 @@ class PageHeader extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.arrow_back),
             iconSize: 22,
-            padding: EdgeInsets.zero, // ⬅ uklanja dodatni unutrašnji razmak
-            constraints: const BoxConstraints(), // ⬅ bitno!
+            padding: EdgeInsets.zero, 
+            constraints: const BoxConstraints(),
             color: AppColors.brand,
             onPressed: () => Navigator.pop(context),
           ),
