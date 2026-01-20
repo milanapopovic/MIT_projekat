@@ -13,7 +13,7 @@ class ProductDetailsScreen extends StatefulWidget {
   final String imageUrl;
   final String? initialSelectedSize;
 
-  final List<String> sizes;
+  final List<String> sizes; 
   final String description; 
 
   const ProductDetailsScreen({

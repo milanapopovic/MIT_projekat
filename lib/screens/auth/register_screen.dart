@@ -58,11 +58,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
 
   
-    context.read<AuthState>().register(email);
+    context.read<AuthState>().register(email, name);
     widget.onDone();
   }
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(

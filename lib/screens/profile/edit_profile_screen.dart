@@ -1,5 +1,7 @@
+import 'package:fashion_app1/auth/auth_state.dart';
 import 'package:fashion_app1/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class EditProfileScreen extends StatefulWidget {
   final String initialName;
@@ -49,6 +51,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   void _onSaveProfile() {
+    final newName = _nameCtrl.text.trim();
+
+    if (newName.isEmpty) {
+      _showDemoSnack('Name cannot be empty.');
+      return;
+    }
+
+    context.read<AuthState>().updateName(newName);
+    _showDemoSnack('Profile updated.');
+    Navigator.pop(context);
   }
 
   void _onChangePassword() {
@@ -68,11 +80,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       _showDemoSnack('New password and confirmation do not match.');
       return;
     }
-
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Password updated successfully')),
+    );
 
     _currentPassCtrl.clear();
     _newPassCtrl.clear();
     _confirmPassCtrl.clear();
+
+    Navigator.pop(context);
   }
 
   InputDecoration _dec(String label, {Widget? suffix}) {

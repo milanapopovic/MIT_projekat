@@ -23,8 +23,8 @@ class ProfileScreen extends StatelessWidget {
 
 
       ),
-       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+       body: ListView(
+        padding: EdgeInsets.zero,
          children: [
        Padding(
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
@@ -88,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        isGuest ? 'Guest user': (auth.isAdmin ? 'Admin' : 'Milana Popovic'),
+                        isGuest ? 'Guest user': (auth.isAdmin ? 'Admin' : (auth.name ?? 'Milana Popovic')),
                     style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
 
                       ),
@@ -161,7 +161,7 @@ class ProfileScreen extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (_) => EditProfileScreen(
-          initialName: auth.isAdmin ? 'Admin' : 'Milana Popovic',
+          initialName: auth.isAdmin ? 'Admin' :(auth.name ?? 'Milana Popovic'),
           initialEmail: auth.email ?? '',
         ),
       ),
@@ -175,7 +175,7 @@ class ProfileScreen extends StatelessWidget {
 ],
 
 
-          const Spacer(),
+       const SizedBox(height: 48),
 
           // Logout dugme
          Padding(
